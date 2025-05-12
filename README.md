@@ -7,12 +7,19 @@ Meklēt piemērotu automašīnu portālā ss.com var būt ilgs un nogurdinošs p
 ### Izmantotās bibliotēkas:
 
 selenium - Lapas automatizācijai un datu iegūšanai no ss.com
+
 pandas -	Datu apstrādei un eksportam uz Excel
+
 openpyxl	- galvenokārt, krāsošanai un attēlu pievienošanai
+
 requests -	Attēlu lejupielādei no ss.com
+
 uuid	- Unikālu id ģenerēšanai 
+
 datetime -	Šodienas datuma noteikšanai
+
 os -	Ceļš kur saglabāt excel failu un bilžu saglabāšanai
+
 time	- Pauzes starp programmas pieprasījumiem
 
 ### Video ar izmantošasnas piemēru
