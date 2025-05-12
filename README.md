@@ -2,7 +2,7 @@
 
 ### Uzdevums:
 
-Meklēt piemērotu automašīnu portālā ss.com var būt ilgs un nogurdinošs process, kā arī auto cenas bieži svārstās atkarībā no sezonas, izietas csdd skates vai citiem iemesliem. Tādēļ izveidojām programmu, kas automatizē meklēšanu un saglabā visus atrastos rezultātus excel failā, iesaka 3 labākos no tiem. Lietotājs ievada tikai sev interesējošos parametrus – marku, dzinēja tilpumu, ražošanas gadu un maksimālo cenu. Programma pati pārskata visus pieejamos sludinājumus ss.com portālā, un analizē piedāvājumus pēc to cenas, gada un nobraukuma attiecības un dod, mūsuprāt 3 labākos piedāvājumus.
+Meklēt piemērotu automašīnu portālā ss.com var būt ilgs un nogurdinošs process, kā arī auto cenas bieži svārstās atkarībā no sezonas, izietas csdd skates vai citiem iemesliem. Tādēļ izveidojām programmu, kas automatizē meklēšanu un saglabā visus atrastos rezultātus excel failā, iesaka 3 labākos no tiem. Lietotājs ievada tikai sev interesējošos parametrus – marku, dzinēja tilpumu, ražošanas gadu un maksimālo cenu. Programma pati pārskata visus pieejamos sludinājumus ss.com portālā, un analizē piedāvājumus pēc to cenas, gada un nobraukuma attiecības un dod, mūsuprāt 3 labākos piedāvājumus, kā arī veido datu bāzi par Jums interesējošo auto, lai tirgojoties Jūs zinātu tā pārdošanas vēsturi(cena, pārdošanas laiks)
 
 ### Izmantotās bibliotēkas:
 
