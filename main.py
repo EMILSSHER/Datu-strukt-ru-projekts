@@ -7,10 +7,10 @@ from datetime import date #uzzinat šodienas datumu
 import pandas as pd  # datu apstrādei
 import os #pareizo ceļu uz failu un bildes
 import requests # attēlu lejupielādei
-from openpyxl import load_workbook
-from openpyxl.drawing.image import Image as XLImage
-from openpyxl.styles import PatternFill
-import uuid
+from openpyxl import load_workbook #ērtai datu apstrādei excel
+from openpyxl.drawing.image import Image as XLImage # attēlu pievienošanai excel
+from openpyxl.styles import PatternFill  # krāsu pievienošanai excel
+import uuid # unikālu ID ģenerēšanai
 
 sodiena=date.today().strftime("%d-%m-%Y")
 service = Service()
@@ -19,24 +19,24 @@ option = webdriver.ChromeOptions()
 print("============================")
 print("=== SS.COM Aut Meklētājs ===")
 
-print("ievadiet marku")
+print("ievadiet marku: ")
 marka = input().strip().title()
 if marka == "Bmw":
     marka = "BMW"
-    print("ievadiet modeli ievērojot atstarpes un garumzīmes")
+    print("ievadiet modeli ievērojot atstarpes un garumzīmes: ")
     modelis = input()
 else:
-    print("ievadiet modeli")
+    print("ievadiet modeli: ")
     modelis = input().strip().title()
-print("ievadiet min tilpumu")
+print("ievadiet min tilpumu: ")
 min_tilpums = input()
-print("ievadiet max tilpumu")
+print("ievadiet max tilpumu: ")
 max_tilpums = input()
-print("ievadiet gadu no")
+print("ievadiet gadu no: ")
 min_gads = input()
-print("ievadiet gadu līdz")
+print("ievadiet gadu līdz: ")
 max_gads = input()
-max_cena = input("ievadiet maksimālo cenu")
+max_cena = input("ievadiet maksimālo cenu (atstājiet tukšu ja budžetam nav ierobežojuma): ")
 
 driver = webdriver.Chrome(service=service, options=option)
 url="https://www.ss.com/lv/transport/cars/"
@@ -126,9 +126,8 @@ while True:
         except:
             img_url = "Nav norādīts attēls"
             img_path = ""
-
             
-        if title != "Nav norādīts nosaukums":
+        if title != "Nav norādīts nosaukums" and link.startswith("http"):
             print(f"Nosaukums: {title}")
             print(f"Saite: {link}")
             print(f"Gads: {gads}")
@@ -151,8 +150,6 @@ while True:
         if next_imgs:
             next_button = next_imgs[0].find_element(By.XPATH, '..')
 
-        # Ja nākamais URL ir tāds pats, ciklu pārtrauc
-
         driver.execute_script("arguments[0].scrollIntoView();", next_button)
         driver.execute_script("arguments[0].click();", next_button)
         time.sleep(1.5)
@@ -169,6 +166,7 @@ driver.quit()
 print(">>> Pārlūks aizvērts.")
 
 fails = pd.DataFrame(dati)
+fails["Saite"] = fails["Saite"].apply(lambda url: f'=HYPERLINK("{url}", "Atvērt")' if str(url).startswith("http") else url) #aizvieto garu linku ar hipersaiti
 
 fails["score"] = 0.0
 for i, row in fails.iterrows():
@@ -198,8 +196,8 @@ else:
 wb = load_workbook(uz_desk)
 ws = wb.active
 ws.column_dimensions['A'].width = 12
-ws.column_dimensions['B'].width = 45
-ws.column_dimensions['C'].width = 60
+ws.column_dimensions['B'].width = 65
+ws.column_dimensions['C'].width = 10
 ws.column_dimensions['D'].width = 10
 ws.column_dimensions['E'].width = 10
 ws.column_dimensions['F'].width = 15
@@ -227,4 +225,6 @@ wb.save(uz_desk)
 wb.close()
 
 print(f">>> Dati saglabāti Excel failā: sludinajumi_{modelis}.xlsx")
+print(">>> Atveru failu (ar zaļu krāsu iekrāsoti, mūsuprāt, labākie piedāvājumi)...")
+print(">>>nekādu atbildību par ieteikumiem mēs nenesam")
 os.startfile(uz_desk)
