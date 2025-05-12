@@ -14,3 +14,11 @@ uuid	- Unikālu id ģenerēšanai
 datetime -	Šodienas datuma noteikšanai
 os -	Ceļš kur saglabāt excel failu un bilžu saglabāšanai
 time	- Pauzes starp programmas pieprasījumiem
+
+### Video ar izmantošasnas piemēru
+
+https://drive.google.com/file/d/13w0BXPzZER99aG46_n_1Z2b3sSvNobXh/view?usp=drive_link
+
+### Koda autori:
+Emīls Šeršņovs 241RDB220
+Vitālijs Jegorovs 241RDB025
