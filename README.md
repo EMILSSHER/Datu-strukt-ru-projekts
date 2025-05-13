@@ -22,6 +22,14 @@ os -	Ceļš kur saglabāt excel failu un bilžu saglabāšanai
 
 time	- Pauzes starp programmas pieprasījumiem
 
+### Datu struktūras
+
+Saraksts list kurā tiek pieienoti visi mašīnas parametri(sludinājuma teksts, tiplums, nobraukums, gads, cena)
+
+Tajā tiek izmantota metode - atslēga vērtība.
+
+Failu pievienošanai excel un attēlu lejupielādei, kur pārveido iegūtos datus uz excel formātu caru pandām.
+
 ### Video ar izmantošasnas piemēru
 
 https://drive.google.com/file/d/13w0BXPzZER99aG46_n_1Z2b3sSvNobXh/view?usp=drive_link
